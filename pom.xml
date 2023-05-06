@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <artifactId>junit4-runner-parent</artifactId>
   <version>1.0.3-SNAPSHOT</version>
@@ -54,7 +55,7 @@
                 <requireJavaVersion>
                   <version>${maven.compiler.source}</version>
                 </requireJavaVersion>
-                <dependencyConvergence />
+                <dependencyConvergence/>
               </rules>
             </configuration>
           </execution>
@@ -79,6 +80,7 @@
   <scm>
     <connection>scm:git:git@github.com:Nthalk/junit4-runner.git</connection>
     <developerConnection>scm:git:git@github.com:Nthalk/junit4-runner.git</developerConnection>
+    <url>https://github.com/Nthalk/junit4-runner</url>
     <tag>HEAD</tag>
   </scm>
   <distributionManagement>
