@@ -8,7 +8,7 @@
         <version>1.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>xsd</artifactId>
+    <artifactId>junit4-xsd</artifactId>
 
     <build>
         <plugins>

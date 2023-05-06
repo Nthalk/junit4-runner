@@ -8,7 +8,7 @@
     <version>1.0.1-SNAPSHOT</version>
   </parent>
 
-  <artifactId>runner</artifactId>
+  <artifactId>junit4-runner</artifactId>
   <properties>
     <kotlin.version>1.8.21</kotlin.version>
     <kotlin.compiler.incremental>true</kotlin.compiler.incremental>
@@ -47,7 +47,7 @@
     </dependency>
     <dependency>
       <groupId>com.iodesystems</groupId>
-      <artifactId>xsd</artifactId>
+      <artifactId>junit4-xsd</artifactId>
       <version>${project.version}</version>
       <exclusions>
         <exclusion>
