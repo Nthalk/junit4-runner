@@ -1,10 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <artifactId>junit4-runner-parent</artifactId>
   <version>1.0.2-SNAPSHOT</version>
   <groupId>com.iodesystems</groupId>
   <packaging>pom</packaging>
+  <name>JUnit4Runner</name>
+  <description>
+    A helper to
+  </description>
+  <url>https://github.com/Nthalk/junit4-runner</url>
+  <developers>
+    <developer>
+      <id>nthalk</id>
+      <name>Carl Taylor</name>
+      <email>carl@etaylor.me</email>
+      <roles>
+        <role>owner</role>
+        <role>developer</role>
+      </roles>
+      <timezone>-8</timezone>
+    </developer>
+  </developers>
   <modules>
     <module>junit4-xsd</module>
     <module>junit4-runner</module>
@@ -37,15 +55,30 @@
                 <requireJavaVersion>
                   <version>${maven.compiler.source}</version>
                 </requireJavaVersion>
-                <dependencyConvergence />
+                <dependencyConvergence/>
               </rules>
             </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-gpg-plugin</artifactId>
+        <version>3.0.1</version>
+        <executions>
+          <execution>
+            <id>sign-artifacts</id>
+            <phase>verify</phase>
+            <goals>
+              <goal>sign</goal>
+            </goals>
           </execution>
         </executions>
       </plugin>
     </plugins>
   </build>
   <scm>
+    <connection>scm:git:git@github.com:Nthalk/junit4-runner.git</connection>
     <developerConnection>scm:git:git@github.com:Nthalk/junit4-runner.git</developerConnection>
     <tag>HEAD</tag>
   </scm>
@@ -59,5 +92,11 @@
       <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
     </repository>
   </distributionManagement>
+  <licenses>
+    <license>
+      <name>MIT License</name>
+      <url>http://www.opensource.org/licenses/mit-license.php</url>
+    </license>
+  </licenses>
 
 </project>

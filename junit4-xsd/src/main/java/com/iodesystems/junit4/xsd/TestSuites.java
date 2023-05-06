@@ -12,23 +12,23 @@ import java.util.List;
 @XmlType
 @Data
 public class TestSuites {
-    @XmlAttribute
-    String name;
-    @XmlAttribute
-    Integer testCount = 0;
-    @XmlAttribute
-    Integer failures = 0;
-    @XmlAttribute
-    Integer errors = 0;
-    @XmlAttribute
-    Integer skipped = 0;
-    @XmlAttribute
-    Integer assertions = 0;
-    @XmlAttribute
-    BigDecimal time;
-    @XmlAttribute
-    String timestamp;
-    @XmlElements(value = {@XmlElement(name = "testsuite", type = TestSuite.class)})
-    List<TestSuite> testSuites = new ArrayList<>();
+  @XmlAttribute
+  String name;
+  @XmlAttribute
+  Integer testCount = 0;
+  @XmlAttribute
+  Integer failures = 0;
+  @XmlAttribute
+  Integer errors = 0;
+  @XmlAttribute
+  Integer skipped = 0;
+  @XmlAttribute
+  Integer assertions = 0;
+  @XmlAttribute
+  BigDecimal time;
+  @XmlAttribute
+  String timestamp;
+  @XmlElements(value = {@XmlElement(name = "testsuite", type = TestSuite.class)})
+  List<TestSuite> testSuites = new ArrayList<>();
 
 }

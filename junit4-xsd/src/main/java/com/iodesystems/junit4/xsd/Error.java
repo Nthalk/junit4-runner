@@ -9,10 +9,10 @@ import lombok.Data;
 @XmlRootElement(name = "failure")
 @Data
 public class Error implements Result {
-    @XmlAttribute
-    String message;
-    @XmlAttribute
-    String type;
-    @XmlValue
-    String stackTrace;
+  @XmlAttribute
+  String message;
+  @XmlAttribute
+  String type;
+  @XmlValue
+  String stackTrace;
 }

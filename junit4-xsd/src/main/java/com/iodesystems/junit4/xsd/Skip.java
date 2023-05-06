@@ -8,6 +8,6 @@ import lombok.Data;
 @XmlRootElement(name = "skip")
 @Data
 public class Skip implements Result {
-    @XmlAttribute
-    String message;
+  @XmlAttribute
+  String message;
 }

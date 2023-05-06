@@ -7,11 +7,11 @@ import lombok.Data;
 
 @Data
 public class Property {
-    @XmlAttribute
-    String name;
-    @XmlAttribute
-    String value;
-    @XmlValue
-    String text;
+  @XmlAttribute
+  String name;
+  @XmlAttribute
+  String value;
+  @XmlValue
+  String text;
 }
 

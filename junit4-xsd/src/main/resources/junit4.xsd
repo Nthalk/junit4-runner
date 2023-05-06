@@ -31,11 +31,27 @@
                 
     
     
-    <xs:sequence/>
-                
+    <xs:simpleContent>
+                        
+      
+      
+      <xs:extension base="xs:string">
+                                
+        
+        
+        <xs:attribute name="message" type="xs:string"/>
+                                
+        
+        
+        <xs:attribute name="type" type="xs:string"/>
+                              
+      
+      
+      </xs:extension>
+                      
     
     
-    <xs:attribute name="message" type="xs:string"/>
+    </xs:simpleContent>
               
   
   
@@ -47,11 +63,27 @@
                 
     
     
-    <xs:sequence/>
-                
+    <xs:simpleContent>
+                        
+      
+      
+      <xs:extension base="xs:string">
+                                
+        
+        
+        <xs:attribute name="message" type="xs:string"/>
+                                
+        
+        
+        <xs:attribute name="type" type="xs:string"/>
+                              
+      
+      
+      </xs:extension>
+                      
     
     
-    <xs:attribute name="message" type="xs:string"/>
+    </xs:simpleContent>
               
   
   
@@ -67,7 +99,7 @@
                         
       
       
-      <xs:element maxOccurs="unbounded" minOccurs="0" name="properties" type="junit4:property"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="property" type="junit4:property"/>
                       
     
     
@@ -83,15 +115,27 @@
                 
     
     
-    <xs:sequence/>
-                
+    <xs:simpleContent>
+                        
+      
+      
+      <xs:extension base="xs:string">
+                                
+        
+        
+        <xs:attribute name="name" type="xs:string"/>
+                                
+        
+        
+        <xs:attribute name="value" type="xs:string"/>
+                              
+      
+      
+      </xs:extension>
+                      
     
     
-    <xs:attribute name="name" type="xs:string"/>
-                
-    
-    
-    <xs:attribute name="value" type="xs:string"/>
+    </xs:simpleContent>
               
   
   
@@ -127,15 +171,15 @@
                                 
         
         
-        <xs:element name="result" type="junit4:skip"/>
+        <xs:element name="skipped" type="junit4:skip"/>
                                 
         
         
-        <xs:element name="result" type="junit4:failure"/>
+        <xs:element ref="junit4:failure"/>
                                 
         
         
-        <xs:element name="result" type="junit4:error"/>
+        <xs:element name="error" type="junit4:error"/>
                               
       
       
@@ -144,6 +188,14 @@
       
       
       <xs:element minOccurs="0" ref="junit4:properties"/>
+                        
+      
+      
+      <xs:element minOccurs="0" name="system-out" type="xs:string"/>
+                        
+      
+      
+      <xs:element minOccurs="0" name="system-err" type="xs:string"/>
                       
     
     
@@ -199,7 +251,7 @@
                         
       
       
-      <xs:element maxOccurs="unbounded" minOccurs="0" name="testCases" type="junit4:testCase"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="testcase" type="junit4:testCase"/>
                       
     
     
@@ -211,7 +263,15 @@
                 
     
     
+    <xs:attribute name="file" type="xs:string"/>
+                
+    
+    
     <xs:attribute name="tests" type="xs:int"/>
+                
+    
+    
+    <xs:attribute name="classname" type="xs:string"/>
                 
     
     
@@ -251,7 +311,7 @@
                         
       
       
-      <xs:element maxOccurs="unbounded" minOccurs="0" name="testSuites" type="junit4:testSuite"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" ref="junit4:testsuite"/>
                       
     
     

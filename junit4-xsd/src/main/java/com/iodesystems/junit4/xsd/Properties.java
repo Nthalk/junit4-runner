@@ -13,9 +13,9 @@ import java.util.List;
 @XmlRootElement(name = "properties")
 @Data
 public class Properties {
-    @Getter
-    @Setter
-    @XmlElements({@XmlElement(name = "property", type = Property.class)})
-    List<Property> properties = new ArrayList<>();
+  @Getter
+  @Setter
+  @XmlElements({@XmlElement(name = "property", type = Property.class)})
+  List<Property> properties = new ArrayList<>();
 
 }
