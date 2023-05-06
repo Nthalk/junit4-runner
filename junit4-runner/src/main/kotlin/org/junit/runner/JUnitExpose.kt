@@ -12,7 +12,7 @@ import kotlin.system.exitProcess
 object JUnitExpose {
   fun run(cfg: JUnitRunner.Config, vararg junitArgs: String) {
     val classes = ClassPath.from(Test::class.java.classLoader)
-      .getTopLevelClasses(cfg.testPackageScan)
+      .getTopLevelClassesRecursive(cfg.testPackageScan)
       .map { cls -> Class.forName(cls.name) }
       .filter { cls ->
         cls.declaredMethods
