@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:junit4="junit" elementFormDefault="qualified" targetNamespace="junit" version="1.0">
+        
+  
+  
+  <xs:element name="failure" nillable="true" type="xs:anyType"/>
+        
+  
+  
+  <xs:element name="properties" type="junit4:properties"/>
+        
+  
+  
+  <xs:element name="skip" type="junit4:skip"/>
+        
+  
+  
+  <xs:element name="test-case" type="junit4:testCase"/>
+        
+  
+  
+  <xs:element name="testsuite" type="junit4:testSuite"/>
+        
+  
+  
+  <xs:element name="testsuites" type="junit4:testSuites"/>
+        
+  
+  
+  <xs:complexType name="error">
+                
+    
+    
+    <xs:sequence/>
+                
+    
+    
+    <xs:attribute name="message" type="xs:string"/>
+              
+  
+  
+  </xs:complexType>
+        
+  
+  
+  <xs:complexType name="failure">
+                
+    
+    
+    <xs:sequence/>
+                
+    
+    
+    <xs:attribute name="message" type="xs:string"/>
+              
+  
+  
+  </xs:complexType>
+        
+  
+  
+  <xs:complexType name="properties">
+                
+    
+    
+    <xs:sequence>
+                        
+      
+      
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="properties" type="junit4:property"/>
+                      
+    
+    
+    </xs:sequence>
+              
+  
+  
+  </xs:complexType>
+        
+  
+  
+  <xs:complexType name="property">
+                
+    
+    
+    <xs:sequence/>
+                
+    
+    
+    <xs:attribute name="name" type="xs:string"/>
+                
+    
+    
+    <xs:attribute name="value" type="xs:string"/>
+              
+  
+  
+  </xs:complexType>
+        
+  
+  
+  <xs:complexType name="skip">
+                
+    
+    
+    <xs:sequence/>
+                
+    
+    
+    <xs:attribute name="message" type="xs:string"/>
+              
+  
+  
+  </xs:complexType>
+        
+  
+  
+  <xs:complexType name="testCase">
+                
+    
+    
+    <xs:sequence>
+                        
+      
+      
+      <xs:choice minOccurs="0">
+                                
+        
+        
+        <xs:element name="result" type="junit4:skip"/>
+                                
+        
+        
+        <xs:element name="result" type="junit4:failure"/>
+                                
+        
+        
+        <xs:element name="result" type="junit4:error"/>
+                              
+      
+      
+      </xs:choice>
+                        
+      
+      
+      <xs:element minOccurs="0" ref="junit4:properties"/>
+                      
+    
+    
+    </xs:sequence>
+                
+    
+    
+    <xs:attribute name="name" type="xs:string"/>
+                
+    
+    
+    <xs:attribute name="className" type="xs:string"/>
+                
+    
+    
+    <xs:attribute name="assertions" type="xs:int"/>
+                
+    
+    
+    <xs:attribute name="time" type="xs:decimal"/>
+                
+    
+    
+    <xs:attribute name="file" type="xs:string"/>
+                
+    
+    
+    <xs:attribute name="line" type="xs:int"/>
+              
+  
+  
+  </xs:complexType>
+        
+  
+  
+  <xs:complexType name="testSuite">
+                
+    
+    
+    <xs:sequence>
+                        
+      
+      
+      <xs:element minOccurs="0" ref="junit4:properties"/>
+                        
+      
+      
+      <xs:element minOccurs="0" name="system-out" type="xs:string"/>
+                        
+      
+      
+      <xs:element minOccurs="0" name="system-err" type="xs:string"/>
+                        
+      
+      
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="testCases" type="junit4:testCase"/>
+                      
+    
+    
+    </xs:sequence>
+                
+    
+    
+    <xs:attribute name="name" type="xs:string"/>
+                
+    
+    
+    <xs:attribute name="tests" type="xs:int"/>
+                
+    
+    
+    <xs:attribute name="failures" type="xs:int"/>
+                
+    
+    
+    <xs:attribute name="errors" type="xs:int"/>
+                
+    
+    
+    <xs:attribute name="skipped" type="xs:int"/>
+                
+    
+    
+    <xs:attribute name="assertions" type="xs:int"/>
+                
+    
+    
+    <xs:attribute name="time" type="xs:decimal"/>
+                
+    
+    
+    <xs:attribute name="timestamp" type="xs:string"/>
+              
+  
+  
+  </xs:complexType>
+        
+  
+  
+  <xs:complexType name="testSuites">
+                
+    
+    
+    <xs:sequence>
+                        
+      
+      
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="testSuites" type="junit4:testSuite"/>
+                      
+    
+    
+    </xs:sequence>
+                
+    
+    
+    <xs:attribute name="name" type="xs:string"/>
+                
+    
+    
+    <xs:attribute name="testCount" type="xs:int"/>
+                
+    
+    
+    <xs:attribute name="failures" type="xs:int"/>
+                
+    
+    
+    <xs:attribute name="errors" type="xs:int"/>
+                
+    
+    
+    <xs:attribute name="skipped" type="xs:int"/>
+                
+    
+    
+    <xs:attribute name="assertions" type="xs:int"/>
+                
+    
+    
+    <xs:attribute name="time" type="xs:decimal"/>
+                
+    
+    
+    <xs:attribute name="timestamp" type="xs:string"/>
+              
+  
+  
+  </xs:complexType>
+      
+
+
+</xs:schema>
