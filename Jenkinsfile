@@ -21,7 +21,7 @@ pipeline {
 
     stage('Build Project') {
       steps {
-        sh 'bin/mvn clean install --no-transfer-progress --update-snapshots'
+        sh 'bin/mvn clean deploy --no-transfer-progress --update-snapshots'
       }
     }
 
