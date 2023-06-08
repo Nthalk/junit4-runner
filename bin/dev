@@ -59,6 +59,5 @@ release)
 Supported Commands:
   release           release a new version
   ensure-no-changes ensures there are no changes in the working directory
-  *                 see the source for more commands
 "
 esac
