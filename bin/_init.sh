@@ -25,7 +25,7 @@ esac
 # remote repo.
 if [ -n "${EXECUTOR_NUMBER:-}" ]; then
   mkdir -p "$HOME/.m2/repo@$EXECUTOR_NUMBER"
-  export MAVEN_OPTS="-Dmaven.repo.local=$HOME/.m2/repo@$EXECUTOR_NUMBER --update-snapshots --no-transfer-progress"
+  export MAVEN_OPTS="-Dmaven.repo.local=$HOME/.m2/repo@$EXECUTOR_NUMBER -U --no-transfer-progress"
 fi
 
 export SED_COMMAND
