@@ -21,7 +21,7 @@ pipeline {
         }
       }
       steps {
-        sh 'bin/mvn clean install'
+        sh 'bin/mvn clean install --no-transfer-progress --update-snapshots'
       }
     }
 
