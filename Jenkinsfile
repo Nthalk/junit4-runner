@@ -33,14 +33,27 @@ pipeline {
         }
       }
       steps {
-        sh 'bin/dev release'
+        sh 'bin/mvn clean deploy --update-snapshots --no-transfer-progress'
       }
     }
 
-    stage('Archive') {
-      steps {
-        archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
+    stage('Release') {
+      when {
+        branch "main"
+        expression {
+          return params.RELEASE == true
+        }
       }
+      steps {
+        sh "bin/dev release '$VERSION'"
+      }
+    }
+  }
+  post {
+    always {
+      junit allowEmptyResults: true,
+              testResults: 'test-results.xml'
+      archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
     }
   }
 }
