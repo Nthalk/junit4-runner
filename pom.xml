@@ -9,7 +9,7 @@
   <description>
     A helper to
   </description>
-  <url>https://github.com/Nthalk/junit4-runner</url>
+  <url>https://github.com/IodeSystemsjunit4-runner</url>
   <developers>
     <developer>
       <id>nthalk</id>
@@ -77,9 +77,9 @@
     </plugins>
   </build>
   <scm>
-    <connection>scm:git:git@github.com:Nthalk/junit4-runner.git</connection>
-    <developerConnection>scm:git:git@github.com:Nthalk/junit4-runner.git</developerConnection>
-    <url>https://github.com/Nthalk/junit4-runner</url>
+    <connection>scm:git:git@github.com:IodeSystemsjunit4-runner.git</connection>
+    <developerConnection>scm:git:git@github.com:IodeSystemsjunit4-runner.git</developerConnection>
+    <url>https://github.com/IodeSystemsjunit4-runner</url>
     <tag>HEAD</tag>
   </scm>
   <distributionManagement>
