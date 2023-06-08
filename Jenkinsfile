@@ -7,35 +7,24 @@ pipeline {
       }
       steps {
         script {
-          properties([parameters([booleanParam(defaultValue: false,
-                  description: 'Deploy',
-                  name: 'DEPLOY')])])
+          properties([parameters([
+                  booleanParam(defaultValue: false,
+                          description: 'Release',
+                          name: 'RELEASE'),
+                  stringParam(defaultValue: 'auto',
+                          description: 'Version, "auto" for automatic versioning, or specify a version number (e.g. 1.0.0)',
+                          name: 'VERSION'),
+          ])])
         }
       }
     }
 
     stage('Build Project') {
-      when {
-        expression {
-          return params.DEPLOY != true
-        }
-      }
       steps {
         sh 'bin/mvn clean install --no-transfer-progress --update-snapshots'
       }
     }
 
-    stage('Build and Publish') {
-      when {
-        branch 'main'
-        expression {
-          return params.DEPLOY == true
-        }
-      }
-      steps {
-        sh 'bin/mvn clean deploy --update-snapshots --no-transfer-progress'
-      }
-    }
 
     stage('Release') {
       when {
