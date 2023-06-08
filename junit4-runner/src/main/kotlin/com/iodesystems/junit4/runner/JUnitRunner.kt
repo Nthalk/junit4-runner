@@ -4,7 +4,8 @@ import org.junit.runner.JUnitExpose
 
 object JUnitRunner {
   data class Config(
-    val testPackageScan: String,
+    val testPackageScan: String? = null,
+    val classes: List<Class<*>>? = null,
     val enableTextOutput: Boolean = true,
     val outputXmlFile: String? = null,
   )

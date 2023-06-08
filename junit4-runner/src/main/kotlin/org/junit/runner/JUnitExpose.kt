@@ -11,20 +11,25 @@ import kotlin.system.exitProcess
 
 object JUnitExpose {
   fun run(cfg: JUnitRunner.Config, vararg junitArgs: String) {
-    val classes = ClassPath.from(Test::class.java.classLoader)
-      .getTopLevelClassesRecursive(cfg.testPackageScan)
+    if (cfg.classes == null && cfg.testPackageScan == null) {
+      throw IllegalArgumentException("Must specify either classes or testPackageScan")
+    }
+
+    val classes = cfg.classes ?: ClassPath.from(Test::class.java.classLoader)
+      .getTopLevelClassesRecursive(cfg.testPackageScan!!)
       .map { cls -> Class.forName(cls.name) }
       .filter { cls ->
         cls.declaredMethods
           .find { method ->
             method.isAnnotationPresent(Test::class.java)
           } != null
-      }.toTypedArray()
+      }
+
     val system = RealSystem()
     val core = JUnitCore()
-
+    
     val parse = JUnitCommandLineParseResult.parse(junitArgs)
-    var request = Request.classes(*classes)
+    var request = Request.classes(*classes.toTypedArray())
     parse.filterSpecs.forEach { filterSpec ->
       val filter = FilterFactories.createFilterFromFilterSpec(
         request, filterSpec
