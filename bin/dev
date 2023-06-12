@@ -31,11 +31,17 @@ release)
   dev ensure-no-changes
   echo "This commit is on tip $BRANCH to release from..."
 
-  echo "Removing snapshot and committing..."
-  mvn versions:set -DremoveSnapshot -DgenerateBackupPoms=false
-  RELEASE_VERSION="$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)"
+
+  VERSION="${2-auto}"
+  if [[ "${VERSION}" = "auto" ]]; then
+    echo "Removing snapshot and committing..."
+    mvn versions:set -DremoveSnapshot -DgenerateBackupPoms=false
+    RELEASE_VERSION="$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)"
+  else
+    echo "Setting version to ${VERSION} and committing..."
+    RELEASE_VERSION="${VERSION}"
+  fi
   git commit -am "Release new version: ${RELEASE_VERSION}"
-  git push
 
   echo "Deploying to ${RELEASE_VERSION} repository..."
   mvn deploy -Dmaven.install.skip=true -DskipTests -Prelease
