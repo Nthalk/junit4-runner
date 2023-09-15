@@ -137,6 +137,9 @@
       </plugin>
     </plugins>
   </build>
+
+
+
   <scm>
     <connection>scm:git:git@github.com:IodeSystemsjunit4-runner.git</connection>
     <developerConnection>scm:git:git@github.com:IodeSystemsjunit4-runner.git</developerConnection>
