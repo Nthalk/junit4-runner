@@ -11,9 +11,11 @@ unameOut="$(uname -a)"
 case "${unameOut}" in
 Linux*)
   SED_COMMAND="sed"
+  JAVA_HOME="$(dirname $(dirname $(readlink -f $(which javac))))"
   ;;
 Darwin*)
   SED_COMMAND="gsed"
+  JAVA_HOME="$(/usr/libexec/java_home)"
   ;;
 *) echo "Unsupported system: ${unameOut}" && exit 1 ;;
 esac
@@ -28,3 +30,4 @@ if [ -n "${EXECUTOR_NUMBER:-}" ]; then
 fi
 
 export SED_COMMAND
+export JAVA_HOME
