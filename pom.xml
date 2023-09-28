@@ -75,7 +75,7 @@
   </modules>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>19</maven.compiler.source>
+    <maven.compiler.source>17</maven.compiler.source>
     <maven.compiler.target>${maven.compiler.source}</maven.compiler.target>
   </properties>
   <build>
@@ -92,11 +92,16 @@
             </goals>
             <configuration>
               <rules>
+                <requireJavaVendor>
+                  <includes>
+                    <include>Amazon.com Inc.</include>
+                  </includes>
+                </requireJavaVendor>
                 <bannedDependencies>
                   <searchTransitive>false</searchTransitive>
                 </bannedDependencies>
                 <requireMavenVersion>
-                  <version>3.8.4</version>
+                  <version>3.9.4</version>
                 </requireMavenVersion>
                 <requireJavaVersion>
                   <version>${maven.compiler.source}</version>
