@@ -10,7 +10,7 @@ import java.io.FileOutputStream
 import kotlin.system.exitProcess
 
 object JUnitExpose {
-  fun run(cfg: JUnitRunner.Config, vararg junitArgs: String) {
+  fun run(cfg: JUnitRunner.Config, vararg junitArgs: String): Result {
     if (cfg.classes == null && cfg.testPackageScan == null) {
       throw IllegalArgumentException("Must specify either classes or testPackageScan")
     }
@@ -27,7 +27,7 @@ object JUnitExpose {
 
     val system = RealSystem()
     val core = JUnitCore()
-    
+
     val parse = JUnitCommandLineParseResult.parse(junitArgs)
     var request = Request.classes(*classes.toTypedArray())
     parse.filterSpecs.forEach { filterSpec ->
@@ -49,6 +49,9 @@ object JUnitExpose {
 
     val result = core.run(request)
 
-    exitProcess(if (result.wasSuccessful()) 0 else 1)
+    if (!cfg.noExit) {
+      exitProcess(if (result.wasSuccessful()) 0 else 1)
+    }
+    return result
   }
 }
